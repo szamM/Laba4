@@ -1,5 +1,5 @@
 package lab3;
 
 public interface Crawlable {
-    void crawl();
+    void crawl_to(Thing thing);
 }

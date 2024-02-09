@@ -1,5 +1,5 @@
 package lab3;
-public class Malish extends Character implements AbleToSit, AbleToOpenBook, AbleToThink, Hearable, AbleToWait, Crawlable, Promisable{
+public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToThink, Hearable, AbleToWait, Crawlable, Promisable{
 
     public Malish() {
         super("Малыш");
@@ -25,14 +25,15 @@ public class Malish extends Character implements AbleToSit, AbleToOpenBook, Able
         System.out.print(this.getName() + " не считал, что это лучший способ позабавиться. ");
     }
 
+
     @Override
-    public void OpenBook() {
-        System.out.println(" открыл задачник. ");
+    public void open(Thing thing_to_open) {
+        System.out.println(" открыл " + thing_to_open + ". ");
     }
 
     @Override
-    public void sit() {
-        System.out.print("сел на стул и");
+    public void sit(Thing thing) {
+        System.out.print("сел на " + thing + " и");
     }
 
     @Override
@@ -41,8 +42,8 @@ public class Malish extends Character implements AbleToSit, AbleToOpenBook, Able
     }
 
     @Override
-    public void crawl() {
-        System.out.print("Поэтому " + this.getName() + " тихонько подкрался к своему столу ");
+    public void crawl_to(Thing thing) {
+        System.out.print("Поэтому " + this.getName() + " тихонько подкрался к своему " + thing + "у, ");
 
     }
 
