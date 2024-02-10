@@ -22,7 +22,7 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
     }
 
     @Override
-    public void CloseEyes() {
+    public void closeEyes() {
         System.out.println(getName() + "только несколько раз опускала веки, словно проверяя себя, не обман ли это зрения.");
     }
 
@@ -43,13 +43,13 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
     }
 
     @Override
-    public void GetBack() {
+    public void getBack() {
         System.out.print(getName() + " попятилась назад и");
     }
 
     @Override
     public void oblackotilas() {
-        System.out.print(" прислонилась к дверям шкафа.");
+        System.out.println(" прислонилась к дверям шкафа.");
     }
 
     @Override

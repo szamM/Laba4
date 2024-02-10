@@ -27,8 +27,8 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
 
 
     @Override
-    public void open(Thing thing_to_open) {
-        System.out.println(" открыл " + thing_to_open + ". ");
+    public void open(Book typeOfBook) {
+        System.out.println(" открыл " + typeOfBook.name() + ". ");
     }
 
     @Override
@@ -37,12 +37,12 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
     }
 
     @Override
-    public void Wait() {
-        System.out.println(" " + getName() + "ждал этого момента с огромным напряжением.");
+    public void waitt() {
+        System.out.println(" " + getName() + " ждал этого момента с огромным напряжением.");
     }
 
     @Override
-    public void crawl_to(Thing thing) {
+    public void crawlTo(Thing thing) {
         System.out.print("Поэтому " + this.getName() + " тихонько подкрался к своему " + thing + "у, ");
 
     }
@@ -50,14 +50,12 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
     @Override
     public void hear(Names name) {
         if (Names.ФрэкенБок == name) {
-            System.out.print(this.getName() + " слышал, как " + name + " обшаривает шкаф.");
+            System.out.println(this.getName() + " слышал, как " + name + " обшаривает шкаф.");
         }
     }
     @Override
-    public void promise(Names name)  {
-        if (Names.Карлсон == name){
-            System.out.print("Но ведь " + this.getName() + " обещал помогать " + name + "у чем сможет. " );
-        }
+    public void promise(Character person)  {
+        System.out.println("Но ведь " + getName() + " обещал помогать " + person.getName() + "у чем сможет.");
     }
 
 
