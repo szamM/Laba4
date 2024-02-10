@@ -4,19 +4,24 @@ public class Main {
         Malish malish = new Malish();
         FrekenBok frekenBok = new FrekenBok();
         Karlson karlson = new Karlson();
-        Thing closet = new Thing("шкаф");
-        Thing chair = new Thing("стул");
+        Furniture closet = new Furniture("шкаф", false);
+        Furniture chair = new Furniture("стул", true);
+        Book probBook1 = new Book(BookType.Задачник, "Я", 1923);
+        Book probBook2 = new Book(BookType.Задачник, "Кто-то", 2023);
+        Book magazine = new Book(BookType.Газета, "Не я", 2024);
         malish.think();
         malish.promise(karlson);
         malish.crawlTo(closet);
         malish.sit(chair);
-        malish.open(Book.Задачник);
-        malish.hear(Names.ФрэкенБок);
+        malish.open(probBook1);
+        malish.hear(frekenBok, closet);
         frekenBok.turn();
-        malish.waitt();
+        malish.waitt(Emotions.Напряжение);
+        frekenBok.getup(closet);
+        frekenBok.see(malish);
         frekenBok.getBack();
-        frekenBok.oblackotilas();
-        frekenBok.stay(Names.Малыш);
+        frekenBok.oblackotilas(closet);
+        frekenBok.stay(malish);
         frekenBok.closeEyes();
     }
 }

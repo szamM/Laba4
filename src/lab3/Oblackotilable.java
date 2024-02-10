@@ -1,5 +1,5 @@
 package lab3;
 
 public interface Oblackotilable {
-    void oblackotilas();
+    void oblackotilas(Furniture furn);
 }

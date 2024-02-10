@@ -1,5 +1,5 @@
 package lab3;
 
 public interface AbleToStay {
-    void stay(Names name);
+    void stay(Malish malish);
 }

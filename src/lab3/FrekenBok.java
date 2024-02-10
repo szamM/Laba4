@@ -28,18 +28,18 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
 
 
     @Override
-    public void getup() {
-        System.out.println(getName() + " тут же вынырнула из недр шкафа");
+    public void getup(Furniture furn) {
+        System.out.print(getName() + " тут же вынырнула из " + furn.getName());
     }
 
     @Override
-    public void see(Names name) {
-        System.out.println(" первое что увидела " + getName() + ", был" + name);
+    public void see(Malish boy) {
+        System.out.println(" первое что увидела " + getName() + ", был " + boy.getName());
     }
 
     @Override
-    public void stay(Names name) {
-        System.out.println("Так " + getName() + " простояла довольно долго, не говоря ни слова и не совдя с " + name + "а глаз.");
+    public void stay(Malish malish) {
+        System.out.println("Так " + getName() + " простояла довольно долго, не говоря ни слова и не совдя с " + malish.getName() + "а глаз.");
     }
 
     @Override
@@ -48,12 +48,12 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
     }
 
     @Override
-    public void oblackotilas() {
-        System.out.println(" прислонилась к дверям шкафа.");
+    public void oblackotilas(Furniture furn) {
+        System.out.println(" прислонилась к " + furn.getName());
     }
 
     @Override
     public void turn() {
-        System.out.print("Сейчас " + this.getName() + " обернеться");
+        System.out.print("Сейчас " + this.getName() + " обернется");
     }
 }

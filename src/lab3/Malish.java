@@ -27,35 +27,39 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
 
 
     @Override
-    public void open(Book typeOfBook) {
-        System.out.println(" открыл " + typeOfBook.name() + ". ");
+    public void open(Book book) {
+        System.out.println(" открыл " + book.type + ", Написанный: " + book.author + " в " + book.date + ". ");
     }
 
     @Override
-    public void sit(Thing thing) {
-        System.out.print("сел на " + thing + " и");
+    public void sit(Furniture thing) {
+        if (thing.getSittable()){
+            System.out.print(" сел на " + thing.getName() + " и");
+        }
+        else{
+            System.out.print(" не смог сесть на " + thing.getName() + " и");
+        }
     }
 
     @Override
-    public void waitt() {
-        System.out.println(" " + getName() + " ждал этого момента с огромным напряжением.");
+    public void waitt(Emotions emotion) {
+        System.out.println(" " + getName() + " ждал этого момента с " + emotion.name());
     }
 
     @Override
     public void crawlTo(Thing thing) {
-        System.out.print("Поэтому " + this.getName() + " тихонько подкрался к своему " + thing + "у, ");
+        System.out.print("Поэтому " + this.getName() + " тихонько подкрался к своему " + thing);
 
     }
 
     @Override
-    public void hear(Names name) {
-        if (Names.ФрэкенБок == name) {
-            System.out.println(this.getName() + " слышал, как " + name + " обшаривает шкаф.");
-        }
+    public void hear(FrekenBok frekenBok, Thing thing) {
+        System.out.println(this.getName() + " слышал, как " + frekenBok.getName() + " обшаривает " + thing.getName());
+
     }
     @Override
     public void promise(Character person)  {
-        System.out.println("Но ведь " + getName() + " обещал помогать " + person.getName() + "у чем сможет.");
+        System.out.println("Но ведь " + getName() + " обещал помогать " + person.getName() + " чем сможет.");
     }
 
 

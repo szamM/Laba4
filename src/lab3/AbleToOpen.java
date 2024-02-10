@@ -1,5 +1,5 @@
 package lab3;
 
 public interface AbleToOpen {
-    void open(Book typeOfBook);
+    void open(Book book);
 }
