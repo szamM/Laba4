@@ -28,7 +28,7 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
 
     @Override
     public void open(Book book) {
-        System.out.println(" открыл " + book.type + ", Написанный: " + book.author + " в " + book.date + ". ");
+        System.out.println(" открыл " + book.getType() + ", Написанный: " + book.getAuthor() + " в " + book.getDate() + ". ");
     }
 
     @Override
@@ -42,19 +42,19 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
     }
 
     @Override
-    public void waitt(Emotions emotion) {
+    public void waitWith(Emotions emotion) {
         System.out.println(" " + getName() + " ждал этого момента с " + emotion.name());
     }
 
     @Override
-    public void crawlTo(Thing thing) {
-        System.out.print("Поэтому " + this.getName() + " тихонько подкрался к своему " + thing);
+    public void crawlTo(Thing thing, Volume vol) {
+        System.out.print("Поэтому " + this.getName() + " " + vol.name() + " подкрался к своему " + thing);
 
     }
 
     @Override
-    public void hear(FrekenBok frekenBok, Thing thing) {
-        System.out.println(this.getName() + " слышал, как " + frekenBok.getName() + " обшаривает " + thing.getName());
+    public void hear(FrekenBok frekenBok, Furniture thing) {
+        System.out.println(this.getName() + " слышал, как " + frekenBok.getName() + frekenBok.check(thing));
 
     }
     @Override

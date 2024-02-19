@@ -1,6 +1,6 @@
 package lab3;
 
-public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, AbleToStay,AbleToGetUp, GetBackable, Oblackotilable, Turnable{
+public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, AbleToStay,AbleToGetUp, GetBackable, Oblackotilable, Turnable, Checkable{
     public FrekenBok() {
 
         super("ФрэкенБок");
@@ -25,16 +25,18 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
     public void closeEyes() {
         System.out.println(getName() + "только несколько раз опускала веки, словно проверяя себя, не обман ли это зрения.");
     }
-
-
+    @Override
+    public String check(Furniture furn) {
+        return " обшаривает " + furn.getStringName();
+    }
     @Override
     public void getup(Furniture furn) {
         System.out.print(getName() + " тут же вынырнула из " + furn.getName());
     }
 
     @Override
-    public void see(Malish boy) {
-        System.out.println(" первое что увидела " + getName() + ", был " + boy.getName());
+    public void see(Malish malish) {
+        System.out.println(" первое что увидела " + getName() + ", был " + malish.getName());
     }
 
     @Override
@@ -54,6 +56,6 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
 
     @Override
     public void turn() {
-        System.out.print("Сейчас " + this.getName() + " обернется");
+        System.out.print("Сейчас " + getName() + " обернется");
     }
 }

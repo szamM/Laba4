@@ -1,5 +1,5 @@
 package lab3;
 
 public interface Hearable {
-    void hear(FrekenBok frekenBok, Thing thing);
+    void hear(FrekenBok frekenBok, Furniture thing);
 }
