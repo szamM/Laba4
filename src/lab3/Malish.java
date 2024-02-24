@@ -1,5 +1,10 @@
 package lab3;
-public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToThink, Hearable, AbleToWait, Crawlable, Promisable{
+
+import Exceptions.EmptyAuthorException;
+
+import javax.naming.AuthenticationException;
+
+public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToThink, Hearable, AbleToWait, Crawlable, Promisable, AbleToLaugh{
 
     public Malish() {
         super("Малыш");
@@ -27,8 +32,14 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
 
 
     @Override
-    public void open(Book book) {
-        System.out.println(" открыл " + book.getType() + ", Написанный: " + book.getAuthor() + " в " + book.getDate() + ". ");
+    public void open(Book book) throws EmptyAuthorException {
+        if (book.getAuthor().isEmpty()){
+            throw new EmptyAuthorException("\nУ книги должен быть автор");
+        }
+        else{
+            System.out.println(" открыл " + book.getType() + ", Написанный: " + book.getAuthor() + " в " + book.getDate() + ". ");
+
+        }
     }
 
     @Override
@@ -58,9 +69,22 @@ public class Malish extends Character implements AbleToSit, AbleToOpen, AbleToTh
 
     }
     @Override
+    public void hearClosing(){
+        System.out.print(getName() + " услышал, что ");
+    }
+
+    @Override
     public void promise(Character person)  {
         System.out.println("Но ведь " + getName() + " обещал помогать " + person.getName() + " чем сможет.");
     }
+    @Override
+    public void laugh(){
+        System.out.print(getName() + " рассмеялся. ");
+    }
 
+    private void a(int i) {
+        System.out.println("aaaaaa" + i);
+
+    }
 
 }

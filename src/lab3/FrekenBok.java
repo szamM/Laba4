@@ -1,6 +1,8 @@
 package lab3;
 
-public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, AbleToStay,AbleToGetUp, GetBackable, Oblackotilable, Turnable, Checkable{
+import Exceptions.PossibleToLeanOnException;
+
+public class FrekenBok extends Character implements AbleToSee, AbleToStay,AbleToGetUp, GetBackable, Oblackotilable, Turnable, Checkable, AbleToCloseDoor, AbleToFoundOut, StillStayeble{
     public FrekenBok() {
 
         super("ФрэкенБок");
@@ -21,9 +23,14 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
         return super.toString();
     }
 
-    @Override
-    public void closeEyes() {
-        System.out.println(getName() + "только несколько раз опускала веки, словно проверяя себя, не обман ли это зрения.");
+
+    public void closeEyes(String state) {
+        class EyeLids{ //Локальный класс
+            String eyeLidsState = state;
+            String name = "веки";
+        }
+        EyeLids eyeLids = new EyeLids();
+        System.out.println(getName() + "только несколько раз опускала " + eyeLids.eyeLidsState + " " + eyeLids.name + " , словно проверяя себя, не обман ли это зрения.");
     }
     @Override
     public String check(Furniture furn) {
@@ -32,6 +39,10 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
     @Override
     public void getup(Furniture furn) {
         System.out.print(getName() + " тут же вынырнула из " + furn.getName());
+    }
+    @Override
+    public void closeDoor(Room.RoomsDoor door){
+            System.out.println(this.getName() + " закрыла " + door.material + " дверь " + door.getDoorOwner() + ".");
     }
 
     @Override
@@ -50,12 +61,25 @@ public class FrekenBok extends Character implements AbleToCloseEyes, AbleToSee, 
     }
 
     @Override
-    public void oblackotilas(Furniture furn) {
-        System.out.println(" прислонилась к " + furn.getName());
+    public void oblackotilas(Furniture furn, Furniture.Doors door) throws PossibleToLeanOnException {
+        if (!door.isOpen){
+            System.out.println(" прислонилась к " + furn.getName());
+        }
+        else{
+            throw new PossibleToLeanOnException(getName() + "упала в " + furn.getName() + " и пропала в нем навсегда");
+        }
     }
 
     @Override
     public void turn() {
         System.out.print("Сейчас " + getName() + " обернется");
+    }
+    @Override
+    public void foundOut(){
+        System.out.print(getName() + " ничего не заметила. ");
+    }
+    @Override
+    public void stillStay(){
+        System.out.println(getName() + " всё ещё стояла молча и, видно, что-то обдумывала.");
     }
 }
